@@ -30,15 +30,18 @@ const JeopardyQuestion: React.FC<IJeopardyQuestionProps> = ({data: clue, onSubmi
       <h2 className={styles.title}>{clue.Category} - ${clue.Value}</h2>
       <p className={styles.question}>{clue.Question}</p>
       <div className={styles.actions}>
-        <button className={styles.buzz} onClick={() => setRingIn(!ringIn)}>{ringIn ? "Buzz" : "un-Buzz"}</button>
+        <button className={styles.buzz} onClick={() => setRingIn(!ringIn)}>{!ringIn ? "Buzz" : "un-Buzz"}</button>
         <button onClick={handleSubmit}>Reveal</button>
       </div>
       
-      {!!ringIn && <input
-        type="text"
-        value={userResponse}
-        onChange={(e) => setUserResponse(e.target.value)}
-      />}
+      {!!ringIn && <div>
+         <input
+            type="text"
+            value={userResponse}
+            onChange={(e) => setUserResponse(e.target.value)}
+          />
+          <button onClick={handleSubmit}>Submit</button>
+        </div>}
       
       {isCorrect !== null && (
         <div className={styles.answerReveal}>
