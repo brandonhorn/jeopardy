@@ -28,11 +28,6 @@ const App = () => {
         data={data}
         onSubmit={() => getClue()}
       />
-      <button
-        onClick={() => getClue()}
-      >
-        Next Question
-      </button>
     </div>
   );
 };
